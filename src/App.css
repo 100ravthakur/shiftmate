@@ -1,38 +1,146 @@
-.App {
+h2 {
+  margin: 0px;
+}
+body {
+  margin: 0px;
+}
+.form-con {
+  width: 100%;
+  height: 100vh;
+  background-image: url(../public/images/regisdter1.webp);
+  justify-items: center;
+  align-content: center;
+  background-position: center;
+  background-size: cover;
+}
+.form-login {
+  border: 1px solid #ffffff54;
+  padding: 30px;
+  border-radius: 15px;
+  backdrop-filter: blur(60px);
+  width: 20%;
+}
+.form-login h2 {
   text-align: center;
+  margin-bottom: 20px;
+  font-size: 35px;
+  color: #ffffff;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+input {
+  width: 100%;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+input {
+  width: 96%;
+  padding: 10px 0px;
+  border-radius: 5px;
+  margin: 5px 0;
+  color: #fff;
+  padding-left: 10px;
+  background: #ffffff00;
+  border: 1px solid #ffffff54;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.inner-con {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+}
+label {
+  display: flex;
+}
+.login-btn {
+  justify-items: center;
+  display: block;
+  width: 100%;
+}
+
+.inner-con input {
+  width: 15% !important;
+}
+
+.inner-con label {
+  display: flex;
+  width: 50%;
+  color: #fff;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+}
+form p {
+  color: #fff;
+}
+.inner-con p {
+  color: #fff;
+}
+button.login-btn {
+  padding: 10px 25px;
+  background: azure;
+  border: none;
+  border-radius: 20px;
+  font-size: 18px;
+  text-align: center;
+  margin: 15px 0;
 }
 
-.App-link {
-  color: #61dafb;
+.registe-con {
+  width: 100%;
+  background-image: url(../public/images/register-bg.webp);
+  height: 100vh;
+  justify-items: center;
+  align-content: center;
+  background-position: top;
+  background-size: cover;
+}
+.register-form {
+  border: 1px solid #ffffff54;
+  padding: 30px;
+  border-radius: 15px;
+  backdrop-filter: blur(60px);
+  width: 20%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.register-form h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 35px;
+  color: #ffffff;
+}
+select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 20px 0;
+  color: #fff;
+  background: transparent;
+}
+.register-btn button {
+  padding: 8px 25px;
+  background: azure;
+  border: none;
+  border-radius: 20px;
+  font-size: 18px;
+  text-align: center;
+  margin: 5px 0;
+  width: 100%;
+}
+
+.register-btn {
+  justify-items: center;
+  display: block;
+  width: 100%;
+}
+
+.register-form:hover {
+
+  backdrop-filter: brightness(0.1);
+ 
+}
+.form-login:hover {
+
+  backdrop-filter: brightness(0.1);
+ 
+}
+form a {
+  color: #fff;
+  text-decoration: none;
+}
+form a:hover {
+  color: red;
+  text-decoration: none;
 }
