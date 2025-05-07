@@ -22,7 +22,7 @@ const RegisterForm = () => {
         form
       );
       alert("Registration successful");
-      window.location.href = "/employee/dashboard";
+      window.location.href = "/login";
     } catch (err) {
       alert("Error: " + err.response.data.error);
     }
