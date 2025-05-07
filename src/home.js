@@ -24,13 +24,13 @@ function Home() {
         <p> Choose which role you have registered</p>
         <div className="user-con">
           <div className="left-log">
-          <a href="http://localhost:3001/login"> <img src="/images/manager-removebg-preview.png" alt="Manager"  width={230}/> </a>
-            <h3><a href="http://localhost:3001/login">Manager Login</a></h3>
+          <a href="https://shiftmate-five.vercel.app/login"> <img src="/images/manager-removebg-preview.png" alt="Manager"  width={230}/> </a>
+            <h3><a href="https://shiftmate-five.vercel.app/login">Manager Login</a></h3>
           </div>
           <div className="right-log">
-          <a href="http://localhost:3001/login"><img src="/images/employee-removebg-preview.png" alt="Employee" width={230}/> </a>
+          <a href="https://shiftmate-five.vercel.app/login"><img src="/images/employee-removebg-preview.png" alt="Employee" width={230}/> </a>
 
-            <h3><a href="http://localhost:3001/login">Employee Login</a></h3>
+            <h3><a href="https://shiftmate-five.vercel.app/login">Employee Login</a></h3>
           </div>
         </div>
       </div>
