@@ -339,6 +339,7 @@ const EmployeeAttendance = () => {
               </button>
             </div>
           )}
+             <p className="text-sm mt-2">Location: {location.address}</p>
         </div>
         <div className="attendance-view">
         <button className="view-btn"
