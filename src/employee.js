@@ -138,13 +138,17 @@ const EmployeeAttendance = () => {
 
   const fetchLocation = () => {
     if (!navigator.geolocation) {
-      alert("Geolocation not supported by your browser.");
+      alert("Geolocation is not supported by your browser.");
       return;
     }
-
+  
+    console.log("Requesting location...");
+  
     navigator.geolocation.getCurrentPosition(
       async (position) => {
         const { latitude, longitude } = position.coords;
+        console.log("Coordinates received:", latitude, longitude);
+  
         try {
           const response = await fetch(
             `https://nominatim.openstreetmap.org/reverse?lat=${latitude}&lon=${longitude}&format=json`,
@@ -154,26 +158,34 @@ const EmployeeAttendance = () => {
               },
             }
           );
+  
           const data = await response.json();
-          console.log("Location Data:", data);
-
+          console.log("Reverse geocoding data:", data);
+  
           setLocation({
             latitude,
             longitude,
             address: data.display_name || `Lat: ${latitude}, Lon: ${longitude}`,
           });
-          console.log("Latitude: ", latitude, "Longitude: ", longitude);
         } catch (error) {
-          alert("Error fetching location details. Please try again.");
+          console.error("Error fetching address:", error);
+          alert("Failed to fetch address from coordinates.");
         }
       },
-      () => {
+      (error) => {
+        console.error("Geolocation error:", error);
         alert(
-          "Unable to retrieve your location. Please check your permissions."
+          `Error getting location: ${error.message}. Make sure location permissions are enabled.`
         );
+      },
+      {
+        enableHighAccuracy: true,
+        timeout: 10000,
+        maximumAge: 0,
       }
     );
   };
+  
 
   const fetchAttend = async () => {
     try {
