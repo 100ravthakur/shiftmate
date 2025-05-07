@@ -40,7 +40,7 @@ const LoginForm = () => {
 
   return (
     <div className="form-con">
-      <div className="home-link"><a href="https://shiftmate-back.onrender.com/home">Dashboard</a></div>
+      <div className="home-link"><a href="https://shiftmate-five.vercel.app/home">Dashboard</a></div>
       <div className="form-login">
         <h2>Login</h2>
         <form onSubmit={handleSubmit}>
@@ -71,7 +71,7 @@ const LoginForm = () => {
           </button>
        </div>
 
-          <p>Don't have an account? <a href="https://shiftmate-back.onrender.com//register">Register</a></p>
+          <p>Don't have an account? <a href="https://shiftmate-five.vercel.app/register">Register</a></p>
           
         </form>
       </div>
