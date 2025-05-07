@@ -77,6 +77,16 @@ button.login-btn {
   text-align: center;
   margin: 15px 0;
 }
+button.login-btn {
+  padding: 10px 25px;
+  background: #000088;
+  border: none;
+  border-radius: 20px;
+  color: #fff;
+  font-size: 18px;
+  text-align: center;
+  margin: 15px 0;
+}
 
 .registe-con {
   width: 100%;
@@ -115,6 +125,17 @@ select {
   border: none;
   border-radius: 20px;
   font-size: 18px;
+  text-align: center;
+  margin: 5px 0;
+  width: 100%;
+}
+.register-btn button:hover {
+  padding: 8px 25px;
+  background: #000088;
+  border: none;
+  border-radius: 20px;
+  font-size: 18px;
+  color: #fff;
   text-align: center;
   margin: 5px 0;
   width: 100%;
