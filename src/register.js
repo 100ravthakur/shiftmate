@@ -24,7 +24,8 @@ const RegisterForm = () => {
       alert("Registration successful");
       window.location.href = "/login";
     } catch (err) {
-      alert("Error: " + err.response.data.error);
+      alert("Error: " + (err.response?.data?.error || err.message || "An error occurred"));
+
     }
   };
 
