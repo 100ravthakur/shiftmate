@@ -150,7 +150,6 @@ const EmployeeAttendance = () => {
             `https://nominatim.openstreetmap.org/reverse?lat=${latitude}&lon=${longitude}&format=json`,
             {
               headers: {
-                "User-Agent": "attendance-app/1.0",
                 "Accept-Language": "en",
               },
             }
