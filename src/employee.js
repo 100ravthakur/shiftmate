@@ -189,6 +189,8 @@ const EmployeeAttendance = () => {
       if (!res.ok) throw new Error("Failed to fetch attendance");
 
       const data = await res.json();
+      console.log(data);
+
       const map = {};
       data.records.forEach((entry) => {
         const formattedDate = new Date(entry.date).toLocaleDateString("en-CA");
@@ -341,6 +343,20 @@ const EmployeeAttendance = () => {
               >
                 Mark Attendance
               </button>
+            </div>
+          )}
+          <button
+            onClick={fetchLocation}
+            className="mt-2 px-4 py-2 bg-purple-500 text-white rounded"
+          >
+            Fetch Location
+          </button>
+
+          {location.latitude && location.longitude && (
+            <div className="mt-2 text-sm text-gray-700">
+              <p>Latitude: {location.latitude}</p>
+              <p>Longitude: {location.longitude}</p>
+              <p>Address: {location.address}</p>
             </div>
           )}
           <p className="text-sm mt-2">Location: {location.address}</p>
