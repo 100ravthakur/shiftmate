@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import "./index.css";
 import Webcam from "react-webcam";
 
-import './responsive.css';
+import "./responsive.css";
 
 const EmployeeAttendance = () => {
   const [today] = useState(new Date().getDate());
@@ -90,7 +90,6 @@ const EmployeeAttendance = () => {
       alert("Missing selfie, location, or status. Please provide all details.");
       return;
     }
-    
 
     const formData = new FormData();
     formData.append("selfie", selfie);
@@ -100,13 +99,16 @@ const EmployeeAttendance = () => {
     formData.append("date", selectdate.toLocaleDateString("en-CA"));
 
     try {
-      const res = await fetch("https://shiftmate-back.onrender.com/api/attendance/mark", {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
-        body: formData,
-      });
+      const res = await fetch(
+        "https://shiftmate-back.onrender.com/api/attendance/mark",
+        {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+          body: formData,
+        }
+      );
 
       if (!res.ok) {
         const errorData = await res.json();
@@ -116,7 +118,7 @@ const EmployeeAttendance = () => {
       const data = await res.json();
       const formattedDate = selectdate.toLocaleDateString("en-CA");
       console.log(data);
-      
+
       setAttendance((prev) => ({
         ...prev,
         [formattedDate]: {
@@ -124,7 +126,6 @@ const EmployeeAttendance = () => {
           imageUrl: data.selfieUrl,
           location: data.location,
         },
-
       }));
 
       setSelfie(null);
@@ -163,7 +164,6 @@ const EmployeeAttendance = () => {
             address: data.display_name || `Lat: ${latitude}, Lon: ${longitude}`,
           });
           console.log("Latitude: ", latitude, "Longitude: ", longitude);
-
         } catch (error) {
           alert("Error fetching location details. Please try again.");
         }
@@ -178,11 +178,14 @@ const EmployeeAttendance = () => {
 
   const fetchAttend = async () => {
     try {
-      const res = await fetch("https://shiftmate-back.onrender.com/api/attendance/me", {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
-      });
+      const res = await fetch(
+        "https://shiftmate-back.onrender.com/api/attendance/me",
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
+      );
 
       if (!res.ok) throw new Error("Failed to fetch attendance");
 
@@ -237,6 +240,7 @@ const EmployeeAttendance = () => {
         }
       );
       const locationData = await locationResponse.json();
+      console.log(locationData);
 
       setAttendanceDetails({
         date: formattedDate,
@@ -258,17 +262,19 @@ const EmployeeAttendance = () => {
           <h2 className="text-xl font-bold my-4">Attendance Calendar</h2>
 
           <div className="set-status">
-          <label className="status block mt-4">Select Attendance Status:</label>
-          <select
-            value={status}
-            onChange={(e) => setStatus(e.target.value)}
-            className="border status-details rounded px-2 py-1 w-full"
-          >
-            <option value="">-- Select Status --</option>
-            <option value="present">Present</option>
-            <option value="absent">Absent</option>
-            <option value="remote">Remote</option>
-          </select>
+            <label className="status block mt-4">
+              Select Attendance Status:
+            </label>
+            <select
+              value={status}
+              onChange={(e) => setStatus(e.target.value)}
+              className="border status-details rounded px-2 py-1 w-full"
+            >
+              <option value="">-- Select Status --</option>
+              <option value="present">Present</option>
+              <option value="absent">Absent</option>
+              <option value="remote">Remote</option>
+            </select>
           </div>
           <div className="calender-emp">
             {daysInMonth.map((day) => {
@@ -303,7 +309,6 @@ const EmployeeAttendance = () => {
             })}
           </div>
 
-
           {showCamera && (
             <div className="mt-4 bg-white border rounded-lg p-4">
               <h3 className="font-semibold mb-2">Capture Selfie</h3>
@@ -327,7 +332,7 @@ const EmployeeAttendance = () => {
               <h4 className="font-semibold">Preview:</h4>
               <img
                 src={URL.createObjectURL(selfie)}
-                alt="Captured Selfie" 
+                alt="Captured Selfie"
                 className="w-40 h-40 object-cover sefie-img rounded border"
               />
               <p className="text-sm mt-2">Location: {location.address}</p>
@@ -339,10 +344,11 @@ const EmployeeAttendance = () => {
               </button>
             </div>
           )}
-             <p className="text-sm mt-2">Location: {location.address}</p>
+          <p className="text-sm mt-2">Location: {location.address}</p>
         </div>
         <div className="attendance-view">
-        <button className="view-btn"
+          <button
+            className="view-btn"
             onClick={async () => {
               const today = new Date();
               const token = localStorage.getItem("token");
@@ -383,19 +389,18 @@ const EmployeeAttendance = () => {
                   Location:{" "}
                   {attendanceDetails?.location || "Location not available"}
                 </p>
-               <div className="view-info">
-
-               <img
-                  src={attendanceDetails.imageUrl}
-                  alt="Attendance Selfie"
-                  className="w-40 h-40 object-cover sefie-img rounded mt-2"
-                />
-                <button
-                  onClick={() => setShowAttendancePopup(false)}
-                  className="close-btn"
-                >
-                  Close
-                </button>
+                <div className="view-info">
+                  <img
+                    src={attendanceDetails.imageUrl}
+                    alt="Attendance Selfie"
+                    className="w-40 h-40 object-cover sefie-img rounded mt-2"
+                  />
+                  <button
+                    onClick={() => setShowAttendancePopup(false)}
+                    className="close-btn"
+                  >
+                    Close
+                  </button>
                 </div>
               </div>
             </div>
