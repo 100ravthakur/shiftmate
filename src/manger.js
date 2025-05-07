@@ -61,7 +61,7 @@ const AdminAttendance = () => {
 
     try {
       const response = await axios.get(
-        `http://localhost:3000/api/users/search?query=${searchQuery}`,
+        `https://shiftmate-back.onrender.com/api/users/search?query=${searchQuery}`,
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -87,7 +87,7 @@ const AdminAttendance = () => {
 
     try {
       const res = await fetch(
-        `http://localhost:3000/api/users/view?userId=${userId}`,
+        `https://shiftmate-back.onrender.com/api/users/view?userId=${userId}`,
         {
           method: "GET",
           headers: {

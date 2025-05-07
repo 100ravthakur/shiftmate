@@ -100,7 +100,7 @@ const EmployeeAttendance = () => {
     formData.append("date", selectdate.toLocaleDateString("en-CA"));
 
     try {
-      const res = await fetch("http://localhost:3000/api/attendance/mark", {
+      const res = await fetch("https://shiftmate-back.onrender.com/api/attendance/mark", {
         method: "POST",
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -178,7 +178,7 @@ const EmployeeAttendance = () => {
 
   const fetchAttend = async () => {
     try {
-      const res = await fetch("http://localhost:3000/api/attendance/me", {
+      const res = await fetch("https://shiftmate-back.onrender.com/api/attendance/me", {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
@@ -211,7 +211,7 @@ const EmployeeAttendance = () => {
     const date = new Date(rawDate).toLocaleDateString("en-CA");
     try {
       const res = await fetch(
-        `http://localhost:3000/api/attendance/day/${date}`,
+        `https://shiftmate-back.onrender.com/api/attendance/day/${date}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -348,7 +348,7 @@ const EmployeeAttendance = () => {
               const dateStr = today.toLocaleDateString("en-CA");
 
               const res = await fetch(
-                `http://localhost:3000/api/attendance/day/${dateStr}`,
+                `https://shiftmate-back.onrender.com/api/attendance/day/${dateStr}`,
                 {
                   headers: {
                     Authorization: `Bearer ${token}`,

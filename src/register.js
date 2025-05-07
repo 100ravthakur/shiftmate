@@ -18,7 +18,7 @@ const RegisterForm = () => {
     e.preventDefault();
     try {
       const res = await axios.post(
-        "http://localhost:3000/api/auth/register",
+        "https://shiftmate-back.onrender.com/api/auth/register",
         form
       );
       alert("Registration successful");
@@ -30,7 +30,7 @@ const RegisterForm = () => {
 
   return (
     <div className="registe-con">
-       <div className="home-link"><a href="http://localhost:3001/home">Dashboard</a></div>
+       <div className="home-link"><a href="https://shiftmate-back.onrender.com/home">Dashboard</a></div>
       <div className="register-form">
         <h2>Register</h2>
         <form onSubmit={handleSubmit}>
@@ -63,7 +63,7 @@ const RegisterForm = () => {
           <div className="register-btn">
             <button type="submit">Register</button>
           </div>
-          <p>Already registered? <a href="http://localhost:3001/login">Login</a></p>
+          <p>Already registered? <a href="https://shiftmate-back.onrender.com/login">Login</a></p>
         </form>
       </div>
     </div>
