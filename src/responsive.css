@@ -48,6 +48,8 @@ button.close-btn {
 }
 .form-con {
     width: 100%;
+    justify-content: center;
+    align-content: center;
     height: 100vh;
  
 }
@@ -58,6 +60,9 @@ button.close-btn {
     position: fixed;
     top: 20px;
     left: 20px;
+}
+.registe-con {
+    align-content: center;
 }
 
 .user-con {
